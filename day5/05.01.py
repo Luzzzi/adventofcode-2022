@@ -4,7 +4,7 @@ with open('input.txt', 'r') as file:
     lines = file.readlines()
     #lines = [line.rstrip() for line in lines] Cette ligne fausse le nombre d'espace en bout de ligne
 
-columns = 3 #Dans l'idéal cette valeur devrait être calculée... 
+columns = 9 #Dans l'idéal cette valeur devrait être calculée... 
 columnsList = [[] for i in range(columns)]
 instruction = []
 stacks = []
@@ -35,17 +35,10 @@ for tab in moveorder:
     arrivalstack = tab[2]
     
     cratestomove = columnsList[departstack -1][0:numberofcrates] #On ajoute -1 car la liste des colonnes démarre à 0
-    print("les caisses à bouger", cratestomove)
-
-    
+ 
     for i in range(len(cratestomove)):
-        
-        print("La colonne de départ", columnsList[departstack -1])
-        print("la colonne d'arrivée", columnsList[arrivalstack -1])
         columnsList[departstack -1].remove(cratestomove[i])
-        print("La colonne de départ après avoir enlever les caisses", columnsList[departstack -1])
         columnsList[arrivalstack -1][:0] = cratestomove[i]
-        print("La colonne d'arrivée après avoir ajouté les caisses", columnsList[arrivalstack -1] )
     
 
 def Extract(lst):

@@ -4,7 +4,7 @@ with open('input.txt', 'r') as file:
     lines = file.readlines()
     #lines = [line.rstrip() for line in lines] Cette ligne fausse le nombre d'espace en bout de ligne
 
-columns = 3 #Dans l'idéal cette valeur devrait être calculée... 
+columns = 9 #Dans l'idéal cette valeur devrait être calculée... 
 columnsList = [[] for i in range(columns)]
 instruction = []
 stacks = []
