@@ -26,7 +26,7 @@ for line in lines:
 
 moveorder = []
 for line in instruction:
-    moveorder.append([int(s) for s in re.findall(r'\b\d+\b', line)])#https://stackoverflow.com/questions/4289331/how-to-extract-numbers-from-a-string-in-python
+    moveorder.append([int(s) for s in re.findall(r'\b\d+\b', line)]) #https://stackoverflow.com/questions/4289331/how-to-extract-numbers-from-a-string-in-python
    
     
 for tab in moveorder:
@@ -35,20 +35,15 @@ for tab in moveorder:
     arrivalstack = tab[2]
     
     cratestomove = columnsList[departstack -1][0:numberofcrates] #On ajoute -1 car la liste des colonnes démarre à 0
-    print("les caisses à bouger", cratestomove)
+    cratestomove.reverse()
 
     
     for i in range(len(cratestomove)):
-        
-        print("La colonne de départ", columnsList[departstack -1])
-        print("la colonne d'arrivée", columnsList[arrivalstack -1])
         columnsList[departstack -1].remove(cratestomove[i])
-        print("La colonne de départ après avoir enlever les caisses", columnsList[departstack -1])
         columnsList[arrivalstack -1][:0] = cratestomove[i]
-        print("La colonne d'arrivée après avoir ajouté les caisses", columnsList[arrivalstack -1] )
     
 
-def Extract(lst):
+def Extract(lst): #
     return [item[0] for item in lst]
 
 print(''.join(Extract(columnsList)))
